@@ -12,7 +12,9 @@ namespace HelloWorldWebApp.Pages
 
         public void OnGet()
         {
-            Message = "Your contact page.";
+            Message = "Contact: \n" +
+                "Bananova 16 \n" +
+                "Bananistan";
         }
     }
 }

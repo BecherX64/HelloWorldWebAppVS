@@ -12,7 +12,7 @@ namespace HelloWorldWebApp.Pages
 
         public void OnGet()
         {
-            Message = "Your application description page.";
+            Message = "What`s My Message ???";
         }
     }
 }
