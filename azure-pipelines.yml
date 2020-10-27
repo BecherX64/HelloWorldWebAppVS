@@ -6,18 +6,19 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'Ubuntu-16.04'
-
-variables:
-  buildConfiguration: 'Release'
 
 steps:
-
 
 - task: AzurePowerShell@5
   inputs:
     azureSubscription: 'DevOpsToVSMSDN_RG_AZ103'
     ScriptType: 'InlineScript'
     Inline: 'Get-AzVM'
+    azurePowerShellVersion: 'LatestVersion'
+
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'DevOpsToVSMSDN_RG_AZ103'
+    ScriptType: 'InlineScript'
+    Inline: 'Get-AzContext'
     azurePowerShellVersion: 'LatestVersion'
