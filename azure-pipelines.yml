@@ -22,3 +22,13 @@ steps:
     ScriptType: 'InlineScript'
     Inline: 'Get-AzContext'
     azurePowerShellVersion: 'LatestVersion'
+
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'Visual Studio Ultimate with MSDN (2494f66e-7fbc-474d-966e-28fc819c3da3)'
+    ScriptType: 'InlineScript'
+    Inline: |
+      Get-AzVM
+      Get-AzContext
+      Get-AzResourceGroup
+    azurePowerShellVersion: 'LatestVersion'
