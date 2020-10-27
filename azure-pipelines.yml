@@ -13,22 +13,23 @@ steps:
   inputs:
     azureSubscription: 'DevOpsToVSMSDN_RG_AZ103'
     ScriptType: 'InlineScript'
-    Inline: 'Get-AzVM'
+    Inline: |
+      Get-AzContext
+      Get-AzVM
+      Get-AzResourceGroup -Name AZ103
+      Get-AzResource -ResourceGroupName AZ103
+      Get-AzResource -ResourceGroupName DXC-LAB1  
     azurePowerShellVersion: 'LatestVersion'
 
-- task: AzurePowerShell@5
-  inputs:
-    azureSubscription: 'DevOpsToVSMSDN_RG_AZ103'
-    ScriptType: 'InlineScript'
-    Inline: 'Get-AzContext'
-    azurePowerShellVersion: 'LatestVersion'
 
 - task: AzurePowerShell@5
   inputs:
     azureSubscription: 'Visual Studio Ultimate with MSDN (2494f66e-7fbc-474d-966e-28fc819c3da3)'
     ScriptType: 'InlineScript'
     Inline: |
-      Get-AzVM
       Get-AzContext
-      Get-AzResourceGroup
+      Get-AzVM
+      Get-AzResourceGroup -Name AZ103
+      Get-AzResource -ResourceGroupName AZ103
+      Get-AzResource -ResourceGroupName DXC-LAB1  
     azurePowerShellVersion: 'LatestVersion'
