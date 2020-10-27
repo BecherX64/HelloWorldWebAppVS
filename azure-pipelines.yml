@@ -1,0 +1,37 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+
+steps:
+
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'DevOpsToVSMSDN_RG_AZ103'
+    ScriptType: 'InlineScript'
+    Inline: |
+      Get-AzContext
+      Get-AzVM
+      Get-AzResourceGroup -Name AZ103
+      Get-AzResource -ResourceGroupName AZ103
+      Get-AzResource -ResourceGroupName DXC-LAB1  
+    azurePowerShellVersion: 'LatestVersion'
+    errorActionPreference: silentlyContinue
+
+
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'Visual Studio Ultimate with MSDN (2494f66e-7fbc-474d-966e-28fc819c3da3)'
+    ScriptType: 'InlineScript'
+    Inline: |
+      Get-AzContext
+      Get-AzVM
+      Get-AzResourceGroup -Name AZ103
+      Get-AzResource -ResourceGroupName AZ103
+      Get-AzResource -ResourceGroupName DXC-LAB1  
+    azurePowerShellVersion: 'LatestVersion'
+    errorActionPreference: silentlyContinue
