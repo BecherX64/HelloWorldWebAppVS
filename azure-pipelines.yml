@@ -20,6 +20,7 @@ steps:
       Get-AzResource -ResourceGroupName AZ103
       Get-AzResource -ResourceGroupName DXC-LAB1  
     azurePowerShellVersion: 'LatestVersion'
+    errorActionPreference: silentlyContinue
 
 
 - task: AzurePowerShell@5
@@ -33,3 +34,4 @@ steps:
       Get-AzResource -ResourceGroupName AZ103
       Get-AzResource -ResourceGroupName DXC-LAB1  
     azurePowerShellVersion: 'LatestVersion'
+    errorActionPreference: silentlyContinue
